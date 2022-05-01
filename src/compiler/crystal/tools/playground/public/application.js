@@ -61,7 +61,7 @@ $(function(){
   });
 
   $("#saveAsGist").click(function(e) {
-    if (Playground.settings.getGithubToken() == '') {
+    if (Playground.settings.getGitHubToken() == '') {
       window.open('/settings');
       return;
     }
@@ -69,7 +69,7 @@ $(function(){
     $.ajax({
       type:"POST",
       beforeSend: function (request) {
-        request.setRequestHeader("Authorization", "token " + Playground.settings.getGithubToken());
+        request.setRequestHeader("Authorization", "token " + Playground.settings.getGitHubToken());
       },
       url: "https://api.github.com/gists",
       data: JSON.stringify({
