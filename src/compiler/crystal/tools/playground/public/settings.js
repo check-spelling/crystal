@@ -22,7 +22,7 @@ Playground.hasStorage = hasStorage();
 
 Playground.settings = {
   default: {
-    settingsGithubToken: '',
+    settingsGitHubToken: '',
     settingsShowTypes: 'true',
     settingsRunDebounce: '800'
   },
@@ -39,8 +39,8 @@ Playground.settings = {
       console.error("Unable to save settings since localStorage is not available");
     }
   },
-  getGithubToken: function() {
-    return Playground.settings._readSetting('settingsGithubToken');
+  getGitHubToken: function() {
+    return Playground.settings._readSetting('settingsGitHubToken');
   },
   getShowTypes: function() {
     return Playground.settings._readSetting('settingsShowTypes') == 'true';
@@ -51,18 +51,18 @@ Playground.settings = {
 };
 
 $(document).ready(function(){
-  var githubTokenText = $("[name=settingsGithubToken]")
+  var githubTokenText = $("[name=settingsGitHubToken]")
   var showTypesCheck = $("[name=settingsShowTypes]")
   var runDebounceInput = $("[name=settingsRunDebounce]")
 
   if (githubTokenText.length > 0) {
     // settings is the current page
-    githubTokenText.val(Playground.settings.getGithubToken());
+    githubTokenText.val(Playground.settings.getGitHubToken());
     showTypesCheck.prop('checked', Playground.settings.getShowTypes());
     runDebounceInput.val(Playground.settings.getRunDebounce());
 
     var saveSettings = function() {
-      Playground.settings._saveSetting("settingsGithubToken", githubTokenText.val());
+      Playground.settings._saveSetting("settingsGitHubToken", githubTokenText.val());
       Playground.settings._saveSetting("settingsShowTypes", showTypesCheck.is(":checked") ? 'true' : 'false');
       Playground.settings._saveSetting("settingsRunDebounce", runDebounceInput.val());
     };
